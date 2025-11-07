@@ -416,7 +416,7 @@ Proprietary - All rights reserved
 ## 👥 Support
 
 For questions or issues:
-- **Email:** support@cloudey.app
+- **Email:** isma@gonrod.com
 - **Issues:** [GitHub Issues](https://github.com/ismgonza/cloudey/issues)
 
 ---
