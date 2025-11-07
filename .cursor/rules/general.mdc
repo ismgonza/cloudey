@@ -1,0 +1,50 @@
+---
+description: Markdown formatting and organization rules
+globs:
+  - "**/*.md"
+alwaysApply: false
+---
+
+# Markdown Rules
+
+## File Organization
+**STRICT: Only 3 markdown files allowed in the entire project**
+
+1. `README.md` (root) - Project overview and purpose
+2. `backend/README.md` - Backend-specific docs
+3. `frontend/README.md` - Frontend-specific docs
+
+**No other .md files.** Keep documentation minimal and organized.
+
+## Documentation Updates
+- **NEVER automatically update README files when code changes**
+- Always ask first: "Should I update the README to reflect this change?"
+- Only update after explicit confirmation
+- Documentation should lag behind code (prototype pace)
+
+## Content Guidelines
+
+### Root README.md
+- Project overview: what it is, why it exists
+- Problem being solved
+- High-level solution
+- Accessible to non-technical readers
+
+### backend/README.md
+- How to run backend locally
+- Start/stop commands
+- Project structure
+- Key commands (uv add, docker, etc.)
+
+### frontend/README.md
+- How to run frontend locally
+- Start/stop commands  
+- Project structure
+- Key commands (npm/vite)
+
+## Formatting
+- ATX-style headers (# ## ###)
+- One blank line between sections
+- Code blocks with language: ```python
+- Lists: `-` for unordered, `1.` for ordered
+- Keep it scannable and concise

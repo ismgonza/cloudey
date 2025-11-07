@@ -1,0 +1,16 @@
+# Ignore backend and frontend (separate repos)
+backend/
+frontend/
+
+# Environment
+.env
+*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db

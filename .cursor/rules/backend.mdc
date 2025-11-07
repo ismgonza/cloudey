@@ -1,0 +1,85 @@
+---
+description: Backend development rules for Cloudey.app
+globs:
+  - "backend/**/*.py"
+  - "backend/pyproject.toml"
+  - "backend/Dockerfile"
+  - "backend/docker-compose.yml"
+alwaysApply: false
+---
+
+# Backend Development Rules
+
+## Project Structure
+- All backend code lives in `backend/` directory
+- FastAPI application code in `backend/app/`
+- Use `uv` for dependency management (never pip)
+- Add packages with: `uv add <package>`
+- Python 3.11+
+
+## Code Organization
+
+### Core Files
+- `main.py`: FastAPI app initialization and route definitions
+- `agents.py`: LangGraph agent logic and workflow orchestration
+- `prompts.py`: All LLM prompt templates (use f-strings, not JSON)
+- `models.py`: Centralized LLM model initialization
+
+### Cloud Integration (`app/cloud/`)
+**Each cloud provider gets its own subdirectory with:**
+- `client.py`: SDK wrapper and business logic
+- `tools.py`: LangGraph tool definitions with @tool decorators
+- `config.py`: Configuration management for cloud credentials
+
+**Example structure:**
+```
+app/cloud/
+  oci/
+    client.py          # OCI SDK wrapper
+    tools.py           # @tool decorated functions for LangGraph
+    config.py          # OCI config management
+  aws/
+    client.py          # AWS SDK wrapper
+    tools.py           # @tool decorated functions for LangGraph
+    config.py          # AWS config management
+```
+
+**Tool Registration:**
+- Each `tools.py` exports a list of tools (e.g., `oci_tools = [tool1, tool2]`)
+- `agents.py` imports and combines: `all_tools = oci_tools + aws_tools`
+- Keep tool functions focused and single-purpose
+
+### Database (`app/db/`)
+- `database.py`: SQLite connection and table model definitions
+- `crud.py`: Database operations (create, read, update, delete)
+- Use SQLite for prototype (may migrate to Postgres later)
+
+### Environment Variables
+- API keys stored in `backend/.env`
+- Never commit `.env` (ensure in `.gitignore`)
+- Cloud credentials stored per-customer in SQLite, not in `.env`
+
+## Code Style
+- Follow FastAPI best practices
+- Use type hints everywhere
+- Async/await for I/O operations
+- Keep functions focused and single-purpose (KISS principle)
+- Minimal comments—code should be self-documenting
+
+## Dependencies
+- FastAPI for API framework
+- LangGraph for agent workflows
+- OCI Python SDK for Oracle Cloud (add others as needed)
+- SQLite (built-in) for database
+- Use `uv add` to install new packages
+
+## Docker
+- `Dockerfile` in `backend/` root
+- `docker-compose.yml` defines app service with SQLite volume mount
+- Keep Docker configs at backend root (not in subdirectory)
+
+## Development Workflow
+1. Use `uv` for all package management
+2. Test locally before dockerizing
+3. Keep it simple—add complexity only when needed
+4. Prototype first, optimize later

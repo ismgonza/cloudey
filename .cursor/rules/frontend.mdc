@@ -1,0 +1,30 @@
+---
+description: Frontend development rules for Cloudey.app
+globs:
+  - "frontend/**/*.{jsx,tsx,js,ts,css}"
+  - "frontend/package.json"
+  - "frontend/vite.config.ts"
+alwaysApply: false
+---
+
+# Frontend Development Rules
+
+## Tech Stack
+- React + Vite
+- Tailwind CSS for styling (no custom CSS unless absolutely necessary)
+- Framer Motion for animations
+
+## Code Style
+- Use functional components with hooks
+- Component names: PascalCase (e.g., `CostDashboard.jsx`)
+- Keep components small and focused (KISS principle)
+- Type safety with PropTypes or TypeScript
+
+## Project Structure
+- Components in `frontend/src/components/`
+- Pages/views in `frontend/src/pages/`
+- Utilities in `frontend/src/utils/`
+
+## Development
+- This is not the priority—backend first
+- Build frontend only after backend is validated
