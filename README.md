@@ -73,8 +73,8 @@ This platform is split into 3 repositories:
 | Repository | Description | Link |
 |------------|-------------|------|
 | **cloudey** | Infrastructure (Docker, docs) | 📍 You are here |
-| **cloudey-backend** | FastAPI + LangGraph API | [GitHub](https://github.com/YOUR_USERNAME/cloudey-backend) |
-| **cloudey-frontend** | React + Vite dashboard | [GitHub](https://github.com/YOUR_USERNAME/cloudey-frontend) |
+| **cloudey-backend** | FastAPI + LangGraph API | [GitHub](https://github.com/ismgonza/cloudey-backend) |
+| **cloudey-frontend** | React + Vite dashboard | [GitHub](https://github.com/ismgonza/cloudey-frontend) |
 
 ---
 
@@ -101,9 +101,9 @@ mkdir cloudey-workspace
 cd cloudey-workspace
 
 # Clone all three repositories
-git clone git@github.com:YOUR_USERNAME/cloudey.git
-git clone git@github.com:YOUR_USERNAME/cloudey-backend.git
-git clone git@github.com:YOUR_USERNAME/cloudey-frontend.git
+git clone git@github.com:ismgonza/cloudey.git
+git clone git@github.com:ismgonza/cloudey-backend.git
+git clone git@github.com:ismgonza/cloudey-frontend.git
 ```
 
 Your directory structure should look like:
@@ -299,13 +299,13 @@ cloudey/
 
 For detailed documentation, see:
 
-- **Backend Documentation:** [cloudey-backend/README.md](https://github.com/YOUR_USERNAME/cloudey-backend/blob/main/README.md)
+- **Backend Documentation:** [cloudey-backend/README.md](https://github.com/ismgonza/cloudey-backend/blob/main/README.md)
   - API endpoints
   - Architecture details
   - Database schema
   - Troubleshooting
 
-- **Frontend Documentation:** [cloudey-frontend/README.md](https://github.com/YOUR_USERNAME/cloudey-frontend/blob/main/README.md)
+- **Frontend Documentation:** [cloudey-frontend/README.md](https://github.com/ismgonza/cloudey-frontend/blob/main/README.md)
   - Component structure
   - Styling guide
   - Development workflow
@@ -417,7 +417,7 @@ Proprietary - All rights reserved
 
 For questions or issues:
 - **Email:** support@cloudey.app
-- **Issues:** [GitHub Issues](https://github.com/YOUR_USERNAME/cloudey/issues)
+- **Issues:** [GitHub Issues](https://github.com/ismgonza/cloudey/issues)
 
 ---
 
