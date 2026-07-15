@@ -46,9 +46,11 @@ Never drop a helper at an unrelated root, invent a parallel folder for the same 
 
 ## Inventory / jobs
 
-- One inventory sync run = **one** ARQ job that runs steps in-process with a semaphore.
-- Do **not** re-enqueue child jobs on the same queue from inside a parent job.
-- Single-resource syncs (usage, monitoring, etc.) keep using `sync_task`.
+- **One unit of work = one ARQ job** (usage, monitoring, inventory step — same pattern).
+- Inventory: enqueue **all steps up front**; each step is its own job. The last terminal step finalizes the run.
+- **Never** hold a worker slot waiting for sibling jobs on the same queue (that deadlocked inventory).
+- Prefer one standard enqueue/worker path over mega-jobs or special-case timeouts. Customization for one feature path is debt — standardize first.
+- Throughput = `WORKER_CONCURRENCY` draining the shared queue.
 
 ## Docs
 
