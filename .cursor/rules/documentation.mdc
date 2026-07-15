@@ -1,0 +1,45 @@
+---
+description: How and when to update project documentation (especially the tracker)
+alwaysApply: true
+---
+
+# Documentation updates
+
+Keep docs accurate and minimal. Prefer updating existing files over creating new markdown.
+
+## Allowed locations
+
+- `backend/documentation/product/tracker.md` — implementation + Sentry incident status (primary working doc)
+- `backend/documentation/ARCHITECTURE.md`, `DEPLOYMENT.md` — only when behavior or ops steps truly change
+- Root / backend / frontend `README.md` — only after the user explicitly asks to update a README
+
+Do **not** invent new markdown guides, incident write-ups, or parallel trackers. Do **not** create docs “for completeness.”
+
+## Tracker (`documentation/product/tracker.md`) — always keep current
+
+Update this file when work changes production posture:
+
+1. **Sentry / incidents** — add or adjust the Production incidents row (symptom, root cause, fix, status). Bump `Last updated`.
+2. **Status values** — use the legend (`Fix shipped`, `Verified`, etc.). Do **not** mark Sentry **Resolved** in the product sense here until prod verify is done (or the user asks you to resolve in Sentry).
+3. **Verify checklists** — refresh when deploy/test steps change.
+4. **Active work** — put in-flight tasks under Active; move to Completed when done (do not delete history rows).
+5. **Completed / Planned / Open** — update only when the task state actually changed.
+
+When fixing a Sentry issue or shipping a sync/deploy-sensitive change, **include the tracker update in the same change** unless the user says not to.
+
+## ARCHITECTURE / DEPLOYMENT
+
+Touch only if the change alters how the system is structured or how to run/deploy it (e.g. new env var, new worker job name, new pause/drain procedure). One short paragraph or table row beats a rewrite.
+
+## Style
+
+- Keep tables scannable; avoid essay-length notes.
+- Link Sentry short-IDs when relevant.
+- Say what to redeploy (API / worker / FE) when that matters.
+- Match existing tone: concise, operational, no fluff.
+
+## Out of scope for agents
+
+- Do not update READMEs unless asked.
+- Do not add screenshots or marketing copy.
+- Do not duplicate tracker content into chat-only notes that never land in the file.
