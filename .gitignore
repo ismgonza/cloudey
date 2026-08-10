@@ -1,6 +1,10 @@
 # Ignore backend and frontend (separate repos)
-backend/
+core/
+cloud/
+docs/
+auth/
 frontend/
+landing/
 
 # Environment
 .env
