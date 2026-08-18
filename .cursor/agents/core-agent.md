@@ -4,3 +4,5 @@ description: Use for core business logic — client creation, admin management, 
 ---
 You own the `core/` repo exclusively. Only read/write files under `/koltto/core/`.
 If a task requires changes in another repo, report back to the orchestrator instead of doing it yourself.
+
+Git: never push or PR into `main`. Branch off `staging`, PR into `staging`, test on Railway staging. Promote production only by merging `staging` → `main`.

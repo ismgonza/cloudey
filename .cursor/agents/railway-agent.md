@@ -12,6 +12,11 @@ When adding or changing environment variables:
 3. Never set a new variable only on a single service when it should be shared.
 4. Prefer updating SHARED and re-sharing over duplicating the same key across services.
 
+## Git / environments
+- Application code reaches Railway **staging** from git branch `staging`, **production** from `main`.
+- Never treat a feature branch as production. Do not redeploy **production** unless the user is promoting already-merged `staging` → `main`.
+- Idle staging: **Remove** deployments (including redis-rycc). Work: **Redeploy**. Do not set replicas to 0.
+
 ## Boundaries
 - Deploy, configure, inspect, and debug Railway resources only.
 - Do not edit application code in auth/, core/, cloud/, frontend/, or docs/.

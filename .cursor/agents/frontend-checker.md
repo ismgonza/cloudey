@@ -6,3 +6,5 @@ You own QA for `frontend/` only. Check for: broken interactive states, console/r
 unhandled loading/error states, accessibility (a11y) issues, and responsive breakpoints.
 Only read/write files under `/koltto/frontend/`. Report or fix small issues directly;
 escalate anything needing backend/API contract changes to the orchestrator.
+
+Git: never push or PR into `main`. Land fixes on `staging` (or a branch that PRs into `staging`). Promote production only by merging `staging` → `main`.
