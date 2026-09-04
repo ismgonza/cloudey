@@ -18,6 +18,8 @@ feature/fix branch  →  PR into staging  →  test on stg  →  merge staging �
 2. PR **base = `staging`** (`gh pr create --base staging`).
 3. Test at `stg-admin.koltto.com` / `stg-portal.koltto.com` (Railway staging up).
 4. Promote: merge **`staging` into `main`** only when the user confirms staging is good.
+5. If Auth and Cloud both change: merge/deploy **auth before cloud** on staging and again on prod.
+   See [deploy-order.md](./deploy-order.md). Never ship new Cloud onto Auth that lacks `validate-token`.
 
 ## Agent hard rules
 

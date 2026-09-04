@@ -17,6 +17,9 @@ When a task spans repos:
 7. Never let a subagent edit files outside the repo folder it owns.
 8. Git: **always** land on `staging` first. Never push, PR, or merge a feature into `main`.
    Production is only `staging` → `main` after staging is verified. See [git-promotion.md](./git-promotion.md).
+9. Deploy order: **Auth before Cloud, always.** Cloud calls Auth `validate-token`; deploying Cloud first
+   401/503s every authenticated Cloud route. See [deploy-order.md](./deploy-order.md).
+   When railway-agent deploys both, instruct it to wait for Auth healthy, then Cloud.
 
 ## External service agents
 Delegate platform work to the matching service agent — do not drive those MCPs yourself

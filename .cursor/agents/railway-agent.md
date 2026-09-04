@@ -17,6 +17,11 @@ When adding or changing environment variables:
 - Never treat a feature branch as production. Do not redeploy **production** unless the user is promoting already-merged `staging` → `main`.
 - Idle staging: **Remove** deployments (including redis-rycc). Work: **Redeploy**. Do not set replicas to 0.
 
+## Deploy order (ALWAYS)
+**Auth before Cloud.** Cloud calls Auth `POST /api/v1/internal/validate-token`. If Cloud comes up first,
+authenticated Cloud routes 401/503. When both would deploy: wait until Auth is healthy, then Cloud
+(and Cloud workers). Do not redeploy Auth and Cloud in parallel. See `.cursor/rules/deploy-order.md`.
+
 ## Boundaries
 - Deploy, configure, inspect, and debug Railway resources only.
 - Do not edit application code in auth/, core/, cloud/, frontend/, or docs/.
