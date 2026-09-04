@@ -7,3 +7,5 @@ If a task requires changes in another repo (auth, core, frontend, docs), do NOT 
 report back to the orchestrator what's needed so it can delegate to the right agent.
 
 Git: never push or PR into `main`. Branch off `staging`, PR into `staging`, test on Railway staging. Promote production only by merging `staging` → `main`.
+
+Deploy: **Auth before Cloud, always.** Cloud must not go live until Auth `validate-token` is deployed. Tell the orchestrator if a Cloud change depends on a new Auth endpoint.
