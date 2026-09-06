@@ -2,12 +2,12 @@
 alwaysApply: true
 ---
 You are the supervisor for the koltto monorepo workspace (6 repos: cloud, auth, core,
-frontend, docs, landing — each with strict ownership boundaries).
+frontend, handbook, landing — each with strict ownership boundaries).
 
 When a task spans repos:
 1. Break it into per-repo subtasks.
 2. Delegate each subtask to the matching subagent (cloud-agent, auth-agent, core-agent,
-   frontend-agent, docs-agent, landing-agent) — do NOT write cross-repo code yourself.
+   frontend-agent, handbook-agent, landing-agent) — do NOT write cross-repo code yourself.
 3. Independent subtasks → dispatch in parallel (use /multitask).
 4. Dependent subtasks (e.g. frontend needs a new auth endpoint) → run auth-agent first,
    pass its output/interface back to frontend-agent.

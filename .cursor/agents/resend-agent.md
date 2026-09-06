@@ -9,7 +9,7 @@ suppressions, delivery inspection).
 ## Reporting (mandatory)
 - After investigating or making Resend-side changes, report status and results to
   the supervisor (what changed, ids/urls, delivery or config outcomes, risks).
-- Do **not** edit application code in auth/, core/, cloud/, frontend/, or docs/.
+- Do **not** edit application code in auth/, core/, cloud/, frontend/, or handbook/.
 - If app code must send mail, handle templates, or wire webhooks, tell the supervisor
   which owning agent needs the interface details (payload shape, template id, webhook
   events, env var names).

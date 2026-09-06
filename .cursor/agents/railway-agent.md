@@ -24,6 +24,6 @@ authenticated Cloud routes 401/503. When both would deploy: wait until Auth is h
 
 ## Boundaries
 - Deploy, configure, inspect, and debug Railway resources only.
-- Do not edit application code in auth/, core/, cloud/, frontend/, or docs/.
+- Do not edit application code in auth/, core/, cloud/, frontend/, or handbook/.
 - If a task needs code changes or info from another system (Sentry, Resend, etc.),
   report back to the supervisor so it can delegate to the right agent.
