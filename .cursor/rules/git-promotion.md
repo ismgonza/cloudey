@@ -4,7 +4,7 @@ alwaysApply: true
 
 # Git promotion (all Koltto repos)
 
-Applies to **frontend, auth, core, cloud, docs, landing**.
+Applies to **frontend, auth, core, cloud, handbook, landing**.
 
 **Never push to `main`. Never open a PR into `main`. Never merge a feature branch into `main`.**
 
